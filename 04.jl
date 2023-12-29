@@ -2,8 +2,7 @@ using MD5
 
 readInput(f) = readline(f)
 
-function find(f, prefix)
-    key = readInput(f)
+function find(key, prefix)
     i = 1
     while(true)
         startswith(bytes2hex(md5(key*string(i))), prefix) && return i
@@ -11,5 +10,5 @@ function find(f, prefix)
     end
 end
 
-@time @show find("data/04_input.txt", "00000")
-@time @show find("data/04_input.txt", "000000")
+@time @show find(readInput("data/04_input.txt"), "00000")
+@time @show find(readInput("data/04_input.txt"), "000000")
